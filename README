@@ -1,0 +1,10 @@
+This program is just a way to learn and build upon the C language for myself.
+It reads in team data from the NHL website and parses it as required, 
+in order to later work with separate statistics as required.
+It creates a separate structure for each of the 30 teams, for which each has
+25 variables.
+
+The next intended step is to create functions for existing parts (to simplify)
+as well as to create new functions that will take the name of two teams and
+return (based on a series of specific calculations) which is more likely to
+win.
