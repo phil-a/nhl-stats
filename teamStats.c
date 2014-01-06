@@ -1,11 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
-<<<<<<< HEAD
-=======
+#include <math.h>
 /***********************************************************************************************
 
 //***********************************************************************************************/
->>>>>>> f78931947673f0fea4ed97d4f16f97d402354bfe
 char line[4200];
 char c;
 int i = 0;
@@ -21,24 +19,30 @@ int w;	//wins
 int l;	//losses
 int ot; //ot losses
 int p; 	//points
-float row;
-float hrow;
-float rrow;
-float pp;
-float gpg;
-float gapg;
-float fvf_fa;
-float pwrplay;
-float penkill;
-float spg;
-float sapg;
-float wp_sf;
-float wp_tf;
-float wp_lap1;
-float wp_lap2;
-float wp_outshoot;
-float wp_outshot;
-float faceoff;
+float row; //regulation + ot wins
+float hrow; //home reg + ot wins
+float rrow; //road reg + ot wins
+float pp; //point percentage
+float gpg; // goals per game
+float gapg; //goals against per game
+float fvf_fa; // 5 on 5 for/against ratio
+float pwrplay; // power play %
+float penkill; // penalty kill %
+float spg; //shots per game
+float sapg; // shots against per game
+float wp_sf; //winning % - scoring first
+float wp_tf; //winning % - trailing first
+float wp_lap1; //winning % - leading after period 1
+float wp_lap2; //winning % - leading after period 1
+float wp_outshoot; //winning % - outshooting
+float wp_outshot; //winning % - outshot
+float faceoff; //face off win %
+float prWin; //pythagenPuck
+float E;
+
+float prWin2; //pythagenPuck
+float E2;
+
 } team[25];
 //***********************************************************************************************
 
@@ -164,20 +168,27 @@ i++;
 
 fclose(file3);
 system("rm file3.txt");
+
+//***********************************************************************************************
+//Prediction Calculation
+//E
+
+for (i = 0; i < 25; i++)
+{
+team[i].E = powf((team[i].gpg + team[i].gapg),0.458);
+
+team[i].prWin = powf(team[i].gpg,team[i].E) / ( (powf(team[i].gpg,team[i].E)) + (powf(team[i].gapg,team[i].E)) );
+}
+
 //***********************************************************************************************
 //print statement
 for (i = 0; i < 25; i++)
 {
-	if (team[i].gpg > 3.0)
-	{
-	printf("%s\n", team[i].teamName);
-	}
+printf("%s   \tPrWin:%f\n", team[i].teamName,team[i].prWin);
+	
 }
 //***********************************************************************************************
 return 0;
 }
 
-<<<<<<< HEAD
 
-=======
->>>>>>> f78931947673f0fea4ed97d4f16f97d402354bfe

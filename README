@@ -4,9 +4,9 @@ in order to later work with separate statistics as required.
 It creates a separate structure for each of the 30 teams, for which each has
 25 variables.
 
-The next intended step is to create functions for existing parts (to simplify)
-as well as to create new functions that will take the name of two teams and
-return (based on a series of specific calculations) which is more likely to
-win.
+The calculation is based on the Pythagenpuck theorem that predicts chances for
+a team to win, based on their Goals For Per Game and Goals Against Per Game.
+The next needed step is to incorporate the winning/losing chances based on 
+whether the team is playing at home or away.
 
 Please do not judge as I am just learning :)
