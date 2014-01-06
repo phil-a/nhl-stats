@@ -171,12 +171,10 @@ system("rm file3.txt");
 
 //***********************************************************************************************
 //Prediction Calculation
-//E
 
 for (i = 0; i < 25; i++)
 {
 team[i].E = powf((team[i].gpg + team[i].gapg),0.458);
-
 team[i].prWin = powf(team[i].gpg,team[i].E) / ( (powf(team[i].gpg,team[i].E)) + (powf(team[i].gapg,team[i].E)) );
 }
 
